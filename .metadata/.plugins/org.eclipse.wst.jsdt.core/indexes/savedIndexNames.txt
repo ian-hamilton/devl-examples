@@ -1,0 +1,2 @@
+INDEX VERSION 1.122+/home/devl/devl/workspaces/example-projects/devl-examples/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+4096065791.index

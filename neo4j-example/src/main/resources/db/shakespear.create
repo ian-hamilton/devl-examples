@@ -1,0 +1,5 @@
+
+
+CREATE (shakespeare {firstname: 'William', lastname: 'Shakespeare'}),
+(juliusCaesar {title: 'Julius Caesar'}),
+(shakespeare)-[:WROTE_PLAY {year: 1599}]->(juliusCaesar)	
