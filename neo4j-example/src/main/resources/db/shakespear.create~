@@ -35,8 +35,3 @@ START theater=node:node_auto_index(theatre = 'Theatre Royal'), newcastle=node:no
 MATCH (newcastle)<-[:IN*1..4]-(theater)<-[:VENUE]-(performance)-[:PERFORMED]->(play)<-[w:WROTE]-(bard) 
 WHERE w.date > 1608 
 RETURN play;
-
-START n=node(*) 
-MATCH n-[r?]-m 
-WITH n, r 
-DELETE n, r;
