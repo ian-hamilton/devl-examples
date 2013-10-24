@@ -14,7 +14,7 @@ public class ConsoleCalculatorInteractionImpl implements ConsoleCalculatorIntera
 
 	@Override
 	public String interactWithCalculator(String consoleInput) {
-		String[] values = consoleInput.split("(?<=[-+*/])|(?=[-+*/])");//("[-+*/]");
+		String[] values = consoleInput.split("(?<=[-+*/])|(?=[-+*/])");
 		if(values == null || values.length != 3)
 			throw new IllegalArgumentException("Values must only have two arguments and one operator");
 		
@@ -31,8 +31,6 @@ public class ConsoleCalculatorInteractionImpl implements ConsoleCalculatorIntera
 			result = calculator.multiply(value1, value2);
 		else if ("/".equals(operator))
 			result = calculator.divide(value1, value2);
-		else
-			throw new IllegalArgumentException("Operator must be a valid mathmatical operator");
 		
 		return String.format("Calculation result = %s", result);
 	}
