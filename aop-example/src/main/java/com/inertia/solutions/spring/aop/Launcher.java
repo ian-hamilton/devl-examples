@@ -23,8 +23,11 @@ public class Launcher {
 		
 		Console console = System.console();
 		String input = console.readLine("Please enter calculation (Q to quit)");
-		while (!QUIT.equalsIgnoreCase(input)) {				
-			String result = consoleCalculatorInteraction.interactWithCalculator(input);
+		while (!QUIT.equalsIgnoreCase(input)) {	
+			String result = new String();
+			try {
+				result = consoleCalculatorInteraction.interactWithCalculator(input);
+			} catch(RuntimeException ex) {}
 			console.format(result);
 			input = console.readLine("\nPlease enter calculation (Q to quit)");
 		}		
