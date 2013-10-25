@@ -17,6 +17,10 @@ public class Launcher {
 	 * mvn exec:java -Dexec.mainClass="com.inertia.solutions.spring.aop.Launcher"
 	 */
 	
+	/**
+	 * Main application execution, which spins up a 
+	 * console dialag for the user.
+	 */
 	public static void main(String[] args) {
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfiguration.class);
 		ConsoleCalculatorInteraction consoleCalculatorInteraction = ctx.getBean(ConsoleCalculatorInteractionImpl.class);

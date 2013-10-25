@@ -6,6 +6,10 @@ import org.springframework.stereotype.Component;
 import com.inertia.solutions.spring.aop.calculator.Calculator;
 import com.inertia.solutions.spring.aop.interaction.ConsoleCalculatorInteraction;
 
+/**
+ * this component is used to parse the input interaction
+ * */
+
 @Component
 public class ConsoleCalculatorInteractionImpl implements ConsoleCalculatorInteraction {
 	
