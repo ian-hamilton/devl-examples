@@ -12,4 +12,6 @@ public interface Repository<K, T> {
 	
 	public Boolean delete(K id);
 	
+	public K generateId();
+	
 }

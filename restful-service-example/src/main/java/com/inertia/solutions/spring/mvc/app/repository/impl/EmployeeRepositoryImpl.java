@@ -3,7 +3,8 @@ package com.inertia.solutions.spring.mvc.app.repository.impl;
 import java.util.Collection;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Component;
 
 import com.inertia.solutions.spring.mvc.app.bean.Employee;
@@ -12,37 +13,42 @@ import com.inertia.solutions.spring.mvc.app.repository.EmployeeRepository;
 @Component
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
-	
-	@Autowired
+	@Resource(name="employeeMemoryDatabase")
 	Map<Integer, Employee> employeeMemoryDatabase;
 	
 	@Override
 	public Collection<Employee> findAll() {
-		return this.employeeMemoryDatabase.values();
+		return employeeMemoryDatabase.values();
 	}
 
 	@Override
 	public Employee find(Integer id) {
-		if(this.employeeMemoryDatabase.containsKey(id))
-			return this.employeeMemoryDatabase.get(id);
+		if(employeeMemoryDatabase.containsKey(id))
+			return employeeMemoryDatabase.get(id);
 		else
 			return null;
 	}
 
 	@Override
 	public Employee save(Employee obj) {
-		this.employeeMemoryDatabase.put(obj.getEmployeeId(), obj);
+		employeeMemoryDatabase.put(obj.getEmployeeId(), obj);
 		return obj;
 	}
 
 	@Override
 	public Boolean delete(Integer id) {
 		Boolean found = false;
-		if(this.employeeMemoryDatabase.containsKey(id)) {
+		if(employeeMemoryDatabase.containsKey(id)) {
 			found = true;
-			this.employeeMemoryDatabase.remove(id);
+			employeeMemoryDatabase.remove(id);
 		}
 		return found;
+	}
+
+	@Override
+	public Integer generateId() {
+		Double d = Math.random();
+		return new Integer(d.intValue());
 	}
 
 }

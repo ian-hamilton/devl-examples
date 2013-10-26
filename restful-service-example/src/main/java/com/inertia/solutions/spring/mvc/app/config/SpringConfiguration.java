@@ -23,7 +23,7 @@ import com.inertia.solutions.spring.mvc.app.bean.Employee;
 	excludeFilters = { @Filter( type=FilterType.ANNOTATION, value=Configuration.class ) })
 public class SpringConfiguration {
 
-	@Bean
+	@Bean(name = "employeeMemoryDatabase")
 	public Map<Integer, Employee> getEmployeeMemoryDatabase() {
 		Map<Integer, Employee> returnVal = new HashMap<Integer, Employee>();
 		
