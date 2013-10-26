@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.inertia.solutions.spring.mvc.app.calculator.Calculator;
 import com.inertia.solutions.spring.mvc.app.calculator.command.impl.OperatorCommandInvoker;
 import com.inertia.solutions.spring.mvc.web.model.CalculationModel;
 import com.inertia.solutions.spring.mvc.web.model.OperatorModel;
@@ -19,9 +18,6 @@ import com.inertia.solutions.spring.mvc.web.model.OperatorModel;
 @Controller
 @RequestMapping("/calculator")
 public class CalculatorController {
-	
-	@Autowired
-	Calculator calculator;
 	
 	@Autowired
 	OperatorCommandInvoker operatorCommandInvoker;
