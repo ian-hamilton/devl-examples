@@ -1,0 +1,26 @@
+package com.inertia.solutions.spring.mvc.web.model;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+
+public class CalculationModelTest {
+
+	private final Integer value1 = new Integer(5);
+	private final Integer value2 = new Integer(6);
+	private static final String ADD = "+";
+	
+	@Test
+	public void testGetterSetter() {
+		CalculationModel modelUnderTest = new CalculationModel();
+		modelUnderTest.setOperator(ADD);
+		modelUnderTest.setValue1(value1);
+		modelUnderTest.setValue2(value2);
+		
+		assertEquals(ADD, modelUnderTest.getOperator());
+		assertEquals(value1, modelUnderTest.getValue1());
+		assertEquals(value2, modelUnderTest.getValue2());
+	}
+	
+}
