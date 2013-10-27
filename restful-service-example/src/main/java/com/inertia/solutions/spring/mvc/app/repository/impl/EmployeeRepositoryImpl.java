@@ -52,4 +52,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		return Min + (int)(Math.random() * ((Max - Min) + 1));
 	}
 
+	protected void setEmployeeMemoryDatabase(
+			Map<Integer, Employee> employeeMemoryDatabase) {
+		this.employeeMemoryDatabase = employeeMemoryDatabase;
+	}
+	
 }
