@@ -43,8 +43,7 @@ public class EmployeeRestController {
 	public @ResponseBody Employee put(@RequestBody Employee employee) {
 		Integer id = employeeRepository.generateId();
 		employee.setEmployeeId(id);
-		employeeRepository.save(employee);
-		return employeeRepository.find(id);
+		return employeeRepository.save(employee);
 	}
 	
 	@ResponseStatus(value = HttpStatus.CREATED)

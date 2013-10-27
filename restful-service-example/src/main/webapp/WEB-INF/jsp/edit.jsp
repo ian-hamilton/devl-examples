@@ -87,6 +87,20 @@ $("document").ready(function(){
 		});
 	});
 	
+	$("#submitDeleteBtn").click(function() {
+		var uri = "/restful-service-example/employee/" + $("#employeeIdText").val();
+		$.ajax({
+		    type: "DELETE",
+		    url: uri,
+		    success: function(data){
+		    	callback(data);
+		    },
+		    failure: function(errMsg) {
+		        alert(errMsg);
+		    }
+		});
+	});
+	
 	$("#submitAllBtn").click(function() {
 		$("#allDiv").empty();
 		var uri = "/restful-service-example/employee/";
@@ -113,10 +127,11 @@ $("document").ready(function(){
 	Last Name:<input type="text" id="lastNameText"/><br>
 	Title:<input type="text" id="titleText"/><br>
 	SS#:<input type="text" id="ssText"/><br>
-	<input type="button" id="submitFindBtn" value="find"/>
-	<input type="button" id="submitUpdateBtn" value="update"/>
-	<input type="button" id="submitNewBtn" value="new"/>
-	<input type="button" id="submitAllBtn" value="Show All"/>
+	<input type="button" id="submitFindBtn" value="Find"/>
+	<input type="button" id="submitUpdateBtn" value="Update"/>
+	<input type="button" id="submitNewBtn" value="New"/>
+	<input type="button" id="submitDeleteBtn" value="Delete"/>
+	<input type="button" id="submitAllBtn" value="Show All"/>	
 </fieldset>
 
 <div id="allDiv">
