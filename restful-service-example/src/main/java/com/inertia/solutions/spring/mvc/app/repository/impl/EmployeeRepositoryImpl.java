@@ -5,12 +5,12 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.inertia.solutions.spring.mvc.app.bean.Employee;
 import com.inertia.solutions.spring.mvc.app.repository.EmployeeRepository;
 
-@Component
+@Repository
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
 	@Resource(name="employeeMemoryDatabase")
@@ -47,8 +47,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
 	@Override
 	public Integer generateId() {
-		Double d = Math.random();
-		return new Integer(d.intValue());
+		Integer Min = new Integer(1000);
+		Integer Max = new Integer(9999);
+		return Min + (int)(Math.random() * ((Max - Min) + 1));
 	}
 
 }
