@@ -22,7 +22,7 @@ import com.inertia.solutions.cxf.ws.example.provision.beans.NameBean;
  * @version 1.0
  * @since 1.0
  */
-@WebService(endpointInterface = "com.intertia.cxf.provision.web.service.GuidService")
+@WebService(endpointInterface = "com.inertia.solutions.cxf.ws.example.provision.web.service.GuidService")
 public class GuidServiceImpl implements GuidService{
 	static Logger log = Logger.getLogger(GuidServiceImpl.class);
 	
