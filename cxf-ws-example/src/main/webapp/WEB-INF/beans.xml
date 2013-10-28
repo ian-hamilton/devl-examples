@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+
+
+	<bean id="guidBean" class="com.inertia.solutions.cxf.ws.example.provision.beans.GuidBean">
+		<property name="firstName" value="Ian" />
+		<property name="lastName" value="Hamilton" />
+		<property name="guid" value="abcdefghij" />
+	</bean>
+
+	<util:map id="guidMap" map-class="java.util.HashMap" key-type="java.lang.String"
+		value-type="com.inertia.solutions.cxf.ws.example.provision.beans.GuidBean">
+		<entry key="IanHamilton" value-ref="guidBean" />
+	</util:map>
+
+	<bean id="guidService"
+		class="com.inertia.solutions.cxf.ws.example.provision.web.service.GuidServiceImpl">
+		<property name="guidMap" ref="guidMap"/>
+	</bean>
+	 
+	<jaxws:endpoint 
+	  id="guidEndpoint" 
+	  implementor="#guidService" 
+	  address="/GuidService" />	  
+	  
+</beans>
