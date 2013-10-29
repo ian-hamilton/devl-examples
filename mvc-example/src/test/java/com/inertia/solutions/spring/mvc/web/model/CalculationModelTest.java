@@ -15,12 +15,12 @@ public class CalculationModelTest {
 	public void testGetterSetter() {
 		CalculationModel modelUnderTest = new CalculationModel();
 		modelUnderTest.setOperator(ADD);
-		modelUnderTest.setValue1(value1);
-		modelUnderTest.setValue2(value2);
+		modelUnderTest.setValue1(value1.toString());
+		modelUnderTest.setValue2(value2.toString());
 		
 		assertEquals(ADD, modelUnderTest.getOperator());
-		assertEquals(value1, modelUnderTest.getValue1());
-		assertEquals(value2, modelUnderTest.getValue2());
+		assertEquals(value1.toString(), modelUnderTest.getValue1());
+		assertEquals(value2.toString(), modelUnderTest.getValue2());
 	}
 	
 }

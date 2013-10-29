@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 import com.inertia.solutions.spring.mvc.app.calculator.command.OperatorCommand;
 import com.inertia.solutions.spring.mvc.app.calculator.command.impl.OperatorCommandInvoker;
@@ -24,6 +25,9 @@ public class CalculatorControllerTest {
 	
 	@Mock
 	OperatorCommand operatorCommand;
+	
+	@Mock
+	BindingResult bindingResult;
 	
 	@InjectMocks
 	CalculatorController controllerUnderTest;
@@ -42,11 +46,12 @@ public class CalculatorControllerTest {
 	public void setup() {
 		Mockito.when(operatorCommandInvoker.invoke(ADD)).thenReturn(operatorCommand);
 		Mockito.when(operatorCommand.exec(value1, value2)).thenReturn(result);
+		Mockito.when(bindingResult.hasErrors()).thenReturn(false);
 		
 		calculationModel = new CalculationModel();
 		calculationModel.setOperator(ADD);
-		calculationModel.setValue1(value1);
-		calculationModel.setValue2(value2);
+		calculationModel.setValue1(value1.toString());
+		calculationModel.setValue2(value2.toString());
 	}
 	
 	@Test
@@ -57,7 +62,7 @@ public class CalculatorControllerTest {
 
 	@Test
 	public void testPost() throws Exception {
-		String result = controllerUnderTest.post(calculationModel, model);
+		String result = controllerUnderTest.post(calculationModel, bindingResult, model);
 		assertEquals("calculator", result);
 		Mockito.verify(operatorCommandInvoker).invoke(ADD);
 		Mockito.verify(operatorCommand).exec(value1, value2);
