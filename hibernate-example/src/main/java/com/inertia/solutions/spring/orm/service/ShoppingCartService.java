@@ -1,11 +1,18 @@
 package com.inertia.solutions.spring.orm.service;
 
+import java.util.List;
+
+import com.inertia.solutions.spring.orm.bean.Item;
 import com.inertia.solutions.spring.orm.bean.ShoppingCart;
 
 public interface ShoppingCartService {
 
-	public ShoppingCart startNewShoppingCart();
-	
-	public ShoppingCart getShoppingCart(String name);
-	
+	ShoppingCart startNewShoppingCart(String userName);
+
+	List<Item> getAllItems();
+
+	void saveItem(Item item);
+
+	ShoppingCart addItemToShoppingCart(String userName, Long itemId);
+
 }

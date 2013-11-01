@@ -7,10 +7,12 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -21,7 +23,8 @@ public class ShoppingCart implements Serializable{
 
 	@Id
 	@Column(name="SHOPPING_CART_ID")
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="shopping_cart_id_seq")
+	@SequenceGenerator(name="shopping_cart_id_seq", sequenceName="shopping_cart_id_seq", allocationSize=1)
 	@NotNull
 	private Long shoppingCartId;
 	
@@ -68,6 +71,16 @@ public class ShoppingCart implements Serializable{
 
 	public void setTotal(Float total) {
 		this.total = total;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder( "ShoppingCart [shoppingCartId=" + shoppingCartId + ", userName="
+				+ userName + ", total=" + total + "]");
+		for(ShoppingCartItem cartItem:this.shoppingCartItems) {
+			builder.append(cartItem.getItem().toString());
+		}
+		return builder.toString();
 	}
 
 }

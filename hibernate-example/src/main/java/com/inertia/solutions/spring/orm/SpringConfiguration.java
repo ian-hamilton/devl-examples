@@ -28,8 +28,8 @@ public class SpringConfiguration {
 	public BasicDataSource getDataSource() {
 		BasicDataSource returnVal =  new BasicDataSource();
 		returnVal.setDriverClassName("org.postgresql.Driver");
-		returnVal.setUrl("localhost:5432");
-		returnVal.setUrl("postgres");
+		returnVal.setUrl("jdbc:postgresql://localhost:5432/hibernatedb");
+		returnVal.setUsername("postgres");
 		returnVal.setPassword("devl");
 		return returnVal;
 	}
@@ -43,7 +43,7 @@ public class SpringConfiguration {
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
 		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hbm2ddl.auto", "create");
+		properties.setProperty("hibernate.hbm2ddl.auto", "create");
 		returnVal.setHibernateProperties(properties);
 		
 		return returnVal;

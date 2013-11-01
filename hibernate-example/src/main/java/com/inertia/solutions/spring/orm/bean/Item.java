@@ -5,7 +5,9 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +16,8 @@ public class Item implements Serializable{
 	private static final long serialVersionUID = 2236530886559182630L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="item_id_seq")
+	@SequenceGenerator(name="item_id_seq", sequenceName="item_id_seq", allocationSize=1)
 	@Column(name="ITEM_ID")
 	private Long itemId;
 	
@@ -46,6 +49,12 @@ public class Item implements Serializable{
 
 	public void setItemPrice(Float itemPrice) {
 		this.itemPrice = itemPrice;
+	}
+
+	@Override
+	public String toString() {
+		return "Item [itemId=" + itemId + ", itemName=" + itemName
+				+ ", itemPrice=" + itemPrice + "]";
 	}
 
 }
