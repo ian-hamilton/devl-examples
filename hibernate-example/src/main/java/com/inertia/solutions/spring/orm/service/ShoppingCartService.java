@@ -15,4 +15,6 @@ public interface ShoppingCartService {
 
 	ShoppingCart addItemToShoppingCart(String userName, Long itemId);
 
+	ShoppingCart getShoppingCart(String userName);
+
 }

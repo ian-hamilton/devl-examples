@@ -12,6 +12,7 @@ import com.inertia.solutions.spring.orm.bean.ShoppingCart;
 import com.inertia.solutions.spring.orm.bean.ShoppingCartItem;
 import com.inertia.solutions.spring.orm.dao.ItemDao;
 import com.inertia.solutions.spring.orm.dao.ShoppingCartDao;
+import com.inertia.solutions.spring.orm.dao.ShoppingCartItemDao;
 import com.inertia.solutions.spring.orm.service.ShoppingCartService;
 
 @Service("shoppingCartService")
@@ -22,6 +23,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 	
 	@Autowired
 	ShoppingCartDao shoppingCartDao;
+	
+	@Autowired
+	ShoppingCartItemDao shoppingCartItemDao;
 	
 	@Override
 	@Transactional
@@ -45,20 +49,38 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 		itemDao.save(item);
 	}
 
-
 	@Override
 	@Transactional
 	public ShoppingCart addItemToShoppingCart(String userName, Long itemId) {
 		Item item = itemDao.find(itemId);
-		ShoppingCart cart = shoppingCartDao.find(userName);
 		
+		ShoppingCart shoppingCart = getShoppingCart(userName);
 		ShoppingCartItem cartItem = new ShoppingCartItem();
 		cartItem.setItem(item);
+		cartItem.setShoppingCart(shoppingCart);
+		shoppingCartItemDao.save(cartItem);
 		
-		cart.getShoppingCartItems().add(cartItem);
-		shoppingCartDao.update(cart);
+		shoppingCart.getShoppingCartItems().add(cartItem);
+		sumShoppingCartTotal(shoppingCart);
+		shoppingCartDao.update(shoppingCart);
 		
-		return shoppingCartDao.find(userName);
+		return getShoppingCart(userName);
+	}
+	
+	private void sumShoppingCartTotal(ShoppingCart shoppingCart) {
+		Float total = new Float(0);
+		for(ShoppingCartItem cartItem:shoppingCart.getShoppingCartItems()){
+			total += cartItem.getItem().getItemPrice();
+		}
+		shoppingCart.setTotal(total);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public ShoppingCart getShoppingCart(String userName) {
+		ShoppingCart shoppingCart = shoppingCartDao.find(userName);
+		shoppingCart.getShoppingCartItems().size();
+		return shoppingCart;
 	}
 
 }

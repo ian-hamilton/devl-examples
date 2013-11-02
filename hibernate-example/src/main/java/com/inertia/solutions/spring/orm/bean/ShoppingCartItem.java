@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -28,6 +29,18 @@ public class ShoppingCartItem implements Serializable{
 	@OneToOne
 	@JoinColumn(name="ITEM_ID")
 	private Item item;
+	
+	@ManyToOne
+	@JoinColumn(name="SHOPPING_CART_ID")
+	private ShoppingCart shoppingCart;
+
+	public ShoppingCart getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(ShoppingCart shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
 
 	public Long getShoppingCartItemId() {
 		return shoppingCartItemId;

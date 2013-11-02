@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -35,10 +33,7 @@ public class ShoppingCart implements Serializable{
 	@Column(name = "TOTAL")
 	private Float total;
 
-	@OneToMany
-	@JoinTable(name = "SHOPPING_ITEMS", 
-		joinColumns = @JoinColumn(name = "SHOPPING_CART_ID"), 
-		inverseJoinColumns = @JoinColumn(name = "ITEM_ID"))
+	@OneToMany(mappedBy="shoppingCart")
 	private Set<ShoppingCartItem> shoppingCartItems = new HashSet<ShoppingCartItem>();
 
 	public Long getShoppingCartId() {
@@ -76,9 +71,9 @@ public class ShoppingCart implements Serializable{
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder( "ShoppingCart [shoppingCartId=" + shoppingCartId + ", userName="
-				+ userName + ", total=" + total + "]");
+				+ userName + ", total=" + total + "]" + "Collection Size=" + this.shoppingCartItems.size());
 		for(ShoppingCartItem cartItem:this.shoppingCartItems) {
-			builder.append(cartItem.getItem().toString());
+			builder.append("\n").append(cartItem.getItem().toString());
 		}
 		return builder.toString();
 	}
