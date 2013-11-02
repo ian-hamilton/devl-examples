@@ -6,10 +6,12 @@
 # Maven
 log/
 target/
+pom.xml~
 
 # Eclipse
 .classpath
 .project
 .settings/
 bin/
+.metadata
 
