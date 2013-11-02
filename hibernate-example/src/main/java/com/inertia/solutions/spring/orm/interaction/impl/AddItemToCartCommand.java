@@ -2,8 +2,6 @@ package com.inertia.solutions.spring.orm.interaction.impl;
 
 import java.util.List;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import com.inertia.solutions.spring.orm.bean.Item;
 import com.inertia.solutions.spring.orm.bean.ShoppingCart;
 import com.inertia.solutions.spring.orm.interaction.InteractionCommand;
