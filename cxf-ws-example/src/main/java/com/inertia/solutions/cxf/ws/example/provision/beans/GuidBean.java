@@ -5,7 +5,6 @@ package com.inertia.solutions.cxf.ws.example.provision.beans;
 
 import java.io.Serializable;
 
-// TODO: Auto-generated Javadoc
 /**
  * Using JRE 1.7.0_07
  * 

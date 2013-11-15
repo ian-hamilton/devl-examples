@@ -15,6 +15,12 @@
 	<name>cxf-ws-example</name>
 	<description>Simple CXF project using spring configuration</description>
 
+	<properties>
+		<jacoco.class.coverage>0.97</jacoco.class.coverage>
+		<jacoco.method.coverage>0.96</jacoco.method.coverage>
+		<jacoco.line.coverage>0.94</jacoco.line.coverage>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
@@ -48,4 +54,13 @@
 
 	</dependencies>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	
 </project>

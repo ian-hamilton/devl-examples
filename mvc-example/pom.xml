@@ -7,12 +7,18 @@
 		<artifactId>devl-examples</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
-	
+
 	<groupId>com.inertia.solutions.spring.mvc</groupId>
 	<artifactId>mvc-example</artifactId>
 	<packaging>war</packaging>
 
 	<name>mvc-example</name>
+
+	<properties>
+		<jacoco.class.coverage>0.97</jacoco.class.coverage>
+		<jacoco.method.coverage>0.96</jacoco.method.coverage>
+		<jacoco.line.coverage>0.94</jacoco.line.coverage>
+	</properties>
 
 	<dependencies>
 
@@ -52,5 +58,14 @@
 		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
