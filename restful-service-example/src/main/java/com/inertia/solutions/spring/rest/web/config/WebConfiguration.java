@@ -1,4 +1,4 @@
-package com.inertia.solutions.spring.mvc.web.config;
+package com.inertia.solutions.spring.rest.web.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

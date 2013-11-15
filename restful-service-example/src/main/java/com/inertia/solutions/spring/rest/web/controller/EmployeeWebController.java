@@ -1,4 +1,4 @@
-package com.inertia.solutions.spring.mvc.web.controller;
+package com.inertia.solutions.spring.rest.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

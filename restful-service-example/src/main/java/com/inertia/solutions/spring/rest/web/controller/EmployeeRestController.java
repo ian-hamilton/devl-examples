@@ -1,4 +1,4 @@
-package com.inertia.solutions.spring.mvc.web.controller;
+package com.inertia.solutions.spring.rest.web.controller;
 
 import java.util.Collection;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.inertia.solutions.spring.mvc.app.bean.Employee;
-import com.inertia.solutions.spring.mvc.app.repository.EmployeeRepository;
+import com.inertia.solutions.spring.rest.app.bean.Employee;
+import com.inertia.solutions.spring.rest.app.repository.EmployeeRepository;
 
 
 @Controller

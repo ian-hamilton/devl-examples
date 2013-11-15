@@ -41,6 +41,7 @@
 		<junit-version>4.11</junit-version>
 		<mockito-version>1.9.5</mockito-version>
 		<jacoco-version>0.6.3.201306030806</jacoco-version>
+		<pittest-version>0.31</pittest-version>
 	</properties>
 
 	<dependencyManagement>
@@ -199,6 +200,11 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>org.pitest</groupId>
+					<artifactId>pitest-maven</artifactId>
+					<version>${pittest-version}</version>
+				</plugin>
 				<plugin>
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>

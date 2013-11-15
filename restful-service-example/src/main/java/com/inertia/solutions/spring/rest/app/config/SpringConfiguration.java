@@ -1,4 +1,4 @@
-package com.inertia.solutions.spring.mvc.app.config;
+package com.inertia.solutions.spring.rest.app.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 
-import com.inertia.solutions.spring.mvc.app.bean.Employee;
+import com.inertia.solutions.spring.rest.app.bean.Employee;
 
 /**
  * 

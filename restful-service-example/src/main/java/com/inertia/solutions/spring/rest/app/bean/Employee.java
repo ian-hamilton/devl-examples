@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.inertia.solutions.spring.mvc.app.bean;
+package com.inertia.solutions.spring.rest.app.bean;
 
 import java.io.Serializable;
 

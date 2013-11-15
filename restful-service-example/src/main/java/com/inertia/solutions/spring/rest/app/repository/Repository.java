@@ -1,4 +1,4 @@
-package com.inertia.solutions.spring.mvc.app.repository;
+package com.inertia.solutions.spring.rest.app.repository;
 
 import java.util.Collection;
 

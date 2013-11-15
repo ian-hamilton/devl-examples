@@ -1,4 +1,4 @@
-package com.inertia.solutions.spring.mvc.app.repository.impl;
+package com.inertia.solutions.spring.rest.app.repository.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
@@ -13,7 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.inertia.solutions.spring.mvc.app.bean.Employee;
+import com.inertia.solutions.spring.rest.app.bean.Employee;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmployeeRepositoryImplTest {

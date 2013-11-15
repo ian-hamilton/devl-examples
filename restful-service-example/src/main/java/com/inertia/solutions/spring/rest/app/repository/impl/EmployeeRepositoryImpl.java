@@ -1,4 +1,4 @@
-package com.inertia.solutions.spring.mvc.app.repository.impl;
+package com.inertia.solutions.spring.rest.app.repository.impl;
 
 import java.util.Collection;
 import java.util.Map;
@@ -7,8 +7,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
 
-import com.inertia.solutions.spring.mvc.app.bean.Employee;
-import com.inertia.solutions.spring.mvc.app.repository.EmployeeRepository;
+import com.inertia.solutions.spring.rest.app.bean.Employee;
+import com.inertia.solutions.spring.rest.app.repository.EmployeeRepository;
 
 @Repository
 public class EmployeeRepositoryImpl implements EmployeeRepository {

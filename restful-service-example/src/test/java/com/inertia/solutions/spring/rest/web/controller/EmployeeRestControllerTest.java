@@ -1,4 +1,4 @@
-package com.inertia.solutions.spring.mvc.web.controller;
+package com.inertia.solutions.spring.rest.web.controller;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -17,8 +17,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.inertia.solutions.spring.mvc.app.bean.Employee;
-import com.inertia.solutions.spring.mvc.app.repository.EmployeeRepository;
+import com.inertia.solutions.spring.rest.app.bean.Employee;
+import com.inertia.solutions.spring.rest.app.repository.EmployeeRepository;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmployeeRestControllerTest {

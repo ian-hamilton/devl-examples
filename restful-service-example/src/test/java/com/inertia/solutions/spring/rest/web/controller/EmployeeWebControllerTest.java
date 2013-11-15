@@ -1,8 +1,10 @@
-package com.inertia.solutions.spring.mvc.web.controller;
+package com.inertia.solutions.spring.rest.web.controller;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import com.inertia.solutions.spring.rest.web.controller.EmployeeWebController;
 
 
 public class EmployeeWebControllerTest {

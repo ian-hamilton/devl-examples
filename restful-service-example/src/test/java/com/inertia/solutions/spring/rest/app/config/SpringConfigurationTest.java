@@ -1,4 +1,4 @@
-package com.inertia.solutions.spring.mvc.app.config;
+package com.inertia.solutions.spring.rest.app.config;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -8,7 +8,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.inertia.solutions.spring.mvc.app.bean.Employee;
+import com.inertia.solutions.spring.rest.app.bean.Employee;
 
 
 public class SpringConfigurationTest {
