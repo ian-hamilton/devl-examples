@@ -12,6 +12,8 @@ import com.inertia.solutions.cxf.ws.example.provision.beans.NameBean;
  * The Interface GuidService.
  *
  * @author ian
+ * 
+ * http://localhost:8080/cxf-ws-example/GuidService?wsdl
  */
 @WebService
 public interface GuidService {
