@@ -1,4 +1,4 @@
-package com.inertia.solutions.consumer.launcher;
+package com.inertia.solutions.mq.consumer.launcher;
 
 import java.io.IOException;
 
