@@ -15,7 +15,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-            com.inertia.solutions.spring.mvc.app.config.SpringConfiguration
+            com.inertia.solutions.spring.rest.app.config.SpringConfiguration
         </param-value>
 	</context-param>
 	
@@ -34,7 +34,7 @@
 		</init-param>
 		 <init-param>
          	<param-name>contextConfigLocation</param-name>
-         	<param-value> com.inertia.solutions.spring.mvc.web.config.WebConfiguration</param-value>
+         	<param-value> com.inertia.solutions.spring.rest.web.config.WebConfiguration</param-value>
       </init-param>
       <load-on-startup>1</load-on-startup>
 	</servlet>

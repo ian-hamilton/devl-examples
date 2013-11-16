@@ -19,7 +19,7 @@ import com.inertia.solutions.spring.rest.app.bean.Employee;
  *
  */
 @Configuration
-@ComponentScan(basePackages = {"com.inertia.solutions.spring.mvc.app"}, 
+@ComponentScan(basePackages = {"com.inertia.solutions.spring.rest.app"}, 
 	excludeFilters = { @Filter( type=FilterType.ANNOTATION, value=Configuration.class ) })
 public class SpringConfiguration {
 
