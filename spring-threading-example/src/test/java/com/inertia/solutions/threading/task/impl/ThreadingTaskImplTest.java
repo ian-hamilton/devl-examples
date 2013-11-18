@@ -41,7 +41,6 @@ public class ThreadingTaskImplTest {
 		assertNotNull(resultBean.getDateAfterExecution());
 		assertNotNull(resultBean.getDateBeforeExecution());
 		assertEquals(new Integer(1), resultBean.getTaskCountId());
-		assertEquals(new Long(1), resultBean.getThreadId());
 		assertEquals(SLEEP_TIME, resultBean.getSleepTime());
 	}
 

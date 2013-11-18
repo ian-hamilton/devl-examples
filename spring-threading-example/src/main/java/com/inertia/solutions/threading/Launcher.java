@@ -21,6 +21,10 @@ public final class Launcher {
 	
 	private Launcher() { }
 	
+	/*
+	 * to execute using the console:
+	 * mvn exec:java -Dexec.mainClass="com.inertia.solutions.threading.Launcher"
+	 */
 	public static void main(final String[] args) throws InterruptedException, ExecutionException {
 
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfiguration.class);
