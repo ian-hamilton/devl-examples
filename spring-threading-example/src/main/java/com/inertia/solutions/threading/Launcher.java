@@ -45,7 +45,7 @@ public final class Launcher {
 				log.info("After Execution: " + bean.toString());
 			}
 			
-			input = console.readLine("\nPlease enter calculation (Q to quit)");
+			input = console.readLine(THREAD_COUNT_INPUT);
 		}
 		
 		((AnnotationConfigApplicationContext) ctx).close();
