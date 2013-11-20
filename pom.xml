@@ -18,6 +18,8 @@
 		<module>mvc-example</module>
 		<module>restful-service-example</module>
 		<module>spring-threading-example</module>
+		<module>spring-scheduling-example</module>
+		<module>pattern-example</module>
 	</modules>
 
 	<properties>
