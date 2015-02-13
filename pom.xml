@@ -20,6 +20,7 @@
 		<module>spring-threading-example</module>
 		<module>spring-scheduling-example</module>
 		<module>pattern-example</module>
+		<module>liquibase-example</module>
 	</modules>
 
 	<properties>
@@ -36,7 +37,6 @@
 		<aspectj-version>1.7.3</aspectj-version>
 		<commons-lang-version>2.3</commons-lang-version>
 		<cxf-version>2.7.0</cxf-version>
-		<hibernate-version>4.2.0.Final</hibernate-version>
 		<commons-dbcp-version>1.4</commons-dbcp-version>
 		<postgres-version>9.2-1003-jdbc4</postgres-version>
 		<rabbitmq-version>1.3.0</rabbitmq-version>
@@ -47,17 +47,12 @@
 		<mockito-version>1.9.5</mockito-version>
 		<jacoco-version>0.6.3.201306030806</jacoco-version>
 		<pittest-version>0.31</pittest-version>
+		<liquibase-version>3.3.2</liquibase-version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<!-- Spring Depenedencies -->
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-core</artifactId>
-				<version>${spring-version}</version>
-			</dependency>
-
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
@@ -138,6 +133,12 @@
 				<groupId>commons-dbcp</groupId>
 				<artifactId>commons-dbcp</artifactId>
 				<version>${commons-dbcp-version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-core</artifactId>
+				<version>${liquibase-version}</version>
 			</dependency>
 
 			<!-- Logging -->

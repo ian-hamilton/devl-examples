@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <include file="com/example/news/news.changelog.xml"/>
+    <include file="com/example/directory/directory.changelog.xml"/>
+
+
+
+    <changeSet id="1" author="Ian" runAlways="false" failOnError="true" context="myapp-1.0.0">
+	<preConditions onFail="HALT" onFailMessage="Table ->USER_TBL<- already exists">
+		<sqlCheck expectedResult="0">select count(*) from information_schema.tables where table_name='USER_TBL'</sqlCheck>
+	</preConditions>
+
+	<comment>This is a the apps user table creation</comment>
+
+	<createTable schemaName="hibernate" tableName="USER_TBL">
+	   <column name="USER_ID" type="NUMBER(9)"/>
+	   <column name="USER_ID" type="VACHAR(20)"/>
+	   <column name="FIRST_NAME" type="VACHAR(100)"/>
+	   <column name="LAST_NAME" type="VACHAR(100)"/>
+	</createTable>
+
+    </changeSet>	
+
+
+</databaseChangeLog>

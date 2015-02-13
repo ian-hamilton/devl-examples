@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet id="1" author="Ian" runAlways="false" failOnError="true" context="myapp-1.0.0">
+	<preConditions onFail="HALT" onFailMessage="Table -USER_TBL- already exists">
+		<sqlCheck expectedResult="0">select count(*) from information_schema.tables where table_name='USER_TBL'</sqlCheck>
+	</preConditions>
+
+	<comment>This is a the apps user table creation</comment>
+
+	<createTable tableName="USER_TBL">
+	   <column name="USER_TBL_ID" type="NUMBER(9)" autoIncrement="true"/>
+	   <column name="USER_ID" type="VACHAR(20)"/>
+	   <column name="FIRST_NAME" type="VACHAR(100)"/>
+	   <column name="LAST_NAME" type="VACHAR(100)"/>
+	</createTable>
+
+    </changeSet>	
+
+
+</databaseChangeLog>
