@@ -12,5 +12,7 @@
     </preConditions>
 
     <include file="src/main/resources/liquibase/change-logs/myapp-version-1.0.0/changelog-1.0.0.xml"/>
+<!--    <include file="src/main/resources/liquibase/change-logs/myapp-version-1.0.1/changelog-1.0.1.xml"/> -->
+<!--    <include file="src/main/resources/liquibase/change-logs/myapp-version-1.0.2/changelog-1.0.2.xml"/> -->
 
 </databaseChangeLog>

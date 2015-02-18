@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet id="4" author="Ian Hamilton" runAlways="false" runOnChange="false" failOnError="true" context="myapp-1.0.2">
+	<comment>This section is used to add a column to the user table and supply a default value</comment>
+
+	<addColumn tableName="USER_TBL">
+		<column name="modified_date" type="datetime"/>
+	</addColumn>
+
+	<sql splitStatements="true" endDelimiter=";">
+		UPDATE user_tbl 
+		SET    modified_date = CURRENT_DATE; 
+	</sql>
+
+    </changeSet>
+
+    <changeSet id="5" author="Ian Hamilton" runAlways="false" runOnChange="false" failOnError="true" context="myapp-1.0.2">
+	<comment>This section is used to add a column to the user table and supply a default value</comment>
+
+	<addColumn tableName="USER_TBL_MY_TYPO">
+		<column name="my_date" type="datetime"/>
+	</addColumn>
+
+	<sql splitStatements="true" endDelimiter=";">
+		UPDATE user_tbl 
+		SET    my_date = CURRENT_DATE; 
+	</sql>
+
+    </changeSet>	
+
+</databaseChangeLog>

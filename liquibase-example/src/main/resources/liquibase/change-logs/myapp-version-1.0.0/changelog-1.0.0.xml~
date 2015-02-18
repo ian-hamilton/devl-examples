@@ -7,7 +7,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 
-    <changeSet id="1" author="Ian" runAlways="false" failOnError="true" context="myapp-1.0.0">
+    <changeSet id="1" author="Ian Hamilton" runAlways="false" runOnChange="false" failOnError="true" context="myapp-1.0.0">
 	<preConditions onFail="HALT" onFailMessage="Table -USER_TBL- already exists">
 		<sqlCheck expectedResult="0">select count(*) from information_schema.tables where table_name='USER_TBL'</sqlCheck>
 	</preConditions>
@@ -15,13 +15,54 @@
 	<comment>This is a the apps user table creation</comment>
 
 	<createTable tableName="USER_TBL">
-	   <column name="USER_TBL_ID" type="NUMBER(9)" autoIncrement="true"/>
-	   <column name="USER_ID" type="VACHAR(20)"/>
-	   <column name="FIRST_NAME" type="VACHAR(100)"/>
-	   <column name="LAST_NAME" type="VACHAR(100)"/>
+	   <column name="USER_TBL_ID" type="serial"/>
+	   <column name="USER_ID" type="VARCHAR(20)"/>
+	   <column name="FIRST_NAME" type="VARCHAR(100)"/>
+	   <column name="LAST_NAME" type="VARCHAR(100)"/>
 	</createTable>
+
+	<insert tableName="USER_TBL">
+	    <column name="USER_TBL_ID" value="1"/>
+            <column name="USER_ID" value="samiam1"/>
+            <column name="FIRST_NAME" value="Sam"/>
+	    <column name="LAST_NAME" value="Iam"/>
+        </insert>
+
+	<rollback>
+        	drop table USER_TBL
+    	</rollback>
 
     </changeSet>	
 
+
+   <changeSet id="2" author="Ian Hamilton" runAlways="false" runOnChange="false" failOnError="true" context="myapp-1.0.0">
+	<comment>This is used to create a table using native sql</comment>
+
+	<sql splitStatements="true" endDelimiter=";">
+	  CREATE TABLE user_preferences_tbl 
+	  ( 
+	     user_preferences_id   SERIAL PRIMARY KEY NOT NULL, 
+	     user_preferences_name TEXT NOT NULL, 
+	     user_tbl_id           INT NOT NULL, 
+	     status                INT NOT NULL 
+	  ); 
+
+	INSERT INTO user_preferences_tbl 
+		    (user_tbl_id, 
+		     user_preferences_name, 
+		     status) 
+	VALUES      ((SELECT user_tbl_id 
+		      FROM   user_tbl 
+		      WHERE  user_id = 'samiam1'), 
+		     'myPref', 
+		     1); 
+
+	</sql>
+
+	<rollback>
+        	drop table USER_PREFERENCES
+    	</rollback>
+
+    </changeSet>	
 
 </databaseChangeLog>
